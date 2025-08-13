@@ -5,14 +5,14 @@
 ### Environment Setup
 - [ ] Ensure Node.js 20+ is installed
 - [ ] Run `npm install` to install all dependencies  
-- [ ] Verify SQLite database exists at `~/.local/share/memory-sqlite/claude_code.db`
+- [ ] Verify SQLite database exists at `~/.local/share/memories/claude_code.db`
 - [ ] Ensure Claude Code conversation data exists in `~/.claude/projects/`
 - [ ] Verify database has been synced with at least some test data
 
 ### Initial Data Sync
 - [ ] Run one-time sync: `npm run cli sync`
 - [ ] Verify database tables are created (sessions, messages, tool_uses, tool_use_results, attachments, env_info)
-- [ ] Check transaction log exists at `~/.local/share/memory-sqlite/mem_db_changes.jsonl`
+- [ ] Check transaction log exists at `~/.local/share/memories/memories_db_changes.jsonl`
 - [ ] Verify data has been populated in all tables
 
 ## Unit Tests
@@ -102,7 +102,7 @@
 - [ ] Build Docker image: `docker compose build`
 - [ ] Start sync daemon: `docker compose up -d`
 - [ ] Check logs: `docker compose logs -f`
-- [ ] Test one-time sync: `docker compose --profile sync-once up memory-sqlite-sync-once`
+- [ ] Test one-time sync: `docker compose --profile sync-once up memories-sync-once`
 - [ ] Verify volume mounts are correct (read-only for Claude projects)
 - [ ] Test MCP server in containerized environment
 
@@ -209,7 +209,7 @@
 ---
 
 **Notes:**
-- Database location: `~/.local/share/memory-sqlite/claude_code.db`
-- Transaction log: `~/.local/share/memory-sqlite/mem_db_changes.jsonl`
+- Database location: `~/.local/share/memories/claude_code.db`
+- Transaction log: `~/.local/share/memories/memories_db_changes.jsonl`
 - Test database for unit tests: `tests/temp/mcp-test.db`
 - Production data is read-only mounted from `~/.claude/projects/`

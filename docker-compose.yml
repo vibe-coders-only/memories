@@ -1,11 +1,11 @@
 services:
-  memory-sqlite-sync:
+  memories-sync:
     build: .
-    container_name: memory-sqlite-sync
+    container_name: memories-sync
     restart: unless-stopped
     volumes:
       - ~/.claude/projects:/claude-projects:ro
-      - ~/.local/share/memory-sqlite:/data
+      - ~/.local/share/memories:/data
     environment:
       - NODE_ENV=production
     command: ["start"]
@@ -13,12 +13,12 @@ services:
       - "3001:3001"
     
   # Optional: Run one-time sync
-  memory-sqlite-sync-once:
+  memories-sync-once:
     build: .
-    container_name: memory-sqlite-sync-once
+    container_name: memories-sync-once
     volumes:
       - ~/.claude/projects:/claude-projects:ro
-      - ~/.local/share/memory-sqlite:/data
+      - ~/.local/share/memories:/data
     environment:
       - NODE_ENV=production
     command: ["sync"]

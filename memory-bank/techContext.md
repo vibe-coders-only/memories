@@ -79,13 +79,13 @@ const getBasePath = () => {
 - **Working Directory**: `/app`
 - **Volume Mounts**: 
   - Host `~/.claude/projects` → Container `/home/user/.claude/projects`
-  - Host `~/.local/share/memory-sqlite` → Container `/home/user/.local/share/memory-sqlite`
+  - Host `~/.local/share/memories` → Container `/home/user/.local/share/memories`
 
 ### Multi-Service Setup
 ```yaml
 services:
-  memory-sqlite-sync:      # Main sync service
-  memory-sqlite-sync-once: # One-time sync (profile: sync-once)  
+  memories-sync:      # Main sync service
+  memories-sync-once: # One-time sync (profile: sync-once)  
   terminal-client:         # Testing client (profile: client)
 ```
 

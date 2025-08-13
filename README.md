@@ -1,10 +1,10 @@
-# mem-sqlite
+# memories
 
 MCP server that enables Claude Code to query its own conversation history.
 
 ## Overview
 
-mem-sqlite synchronizes Claude Code's JSONL conversation logs from `~/.claude/projects/` into a structured SQLite database, exposing query capabilities through the Model Context Protocol.
+memories synchronizes Claude Code's JSONL conversation logs from `~/.claude/projects/` into a structured SQLite database, exposing query capabilities through the Model Context Protocol.
 
 ## Features
 
@@ -26,8 +26,8 @@ mem-sqlite synchronizes Claude Code's JSONL conversation logs from `~/.claude/pr
 
 ```bash
 # Clone repository
-git clone https://github.com/alosec/mem-sqlite
-cd mem-sqlite
+git clone https://github.com/vibe-coders-only/memories
+cd memories
 
 # Install dependencies
 npm install
@@ -36,7 +36,7 @@ npm install
 npm run cli sync
 
 # Add MCP server to Claude Code
-claude mcp add memory-sqlite npm run mcp-server
+claude mcp add memories npm run mcp-server
 ```
 
 ## Usage
@@ -125,8 +125,8 @@ JSONL Files → Watcher → Parser → SQLite → MCP Server → Claude Code
 ### File Locations
 
 - Source: `~/.claude/projects/**/*.jsonl`
-- Database: `~/.local/share/memory-sqlite/claude_code.db`
-- Logs: `~/.local/share/memory-sqlite/mem_db_changes.jsonl`
+- Database: `~/.local/share/memories/claude_code.db`
+- Logs: `~/.local/share/memories/memories_db_changes.jsonl`
 
 ### Environment Variables
 
@@ -145,7 +145,7 @@ npm test
 ### Project Structure
 
 ```
-mem-sqlite/
+memories/
 ├── mcp-server/      # MCP server implementation
 ├── sync_engine/     # JSONL sync and parsing
 ├── database/        # Connection management
@@ -163,7 +163,7 @@ mem-sqlite/
 ### MCP server not responding
 - Verify installation with `claude mcp list`
 - Check logs with `docker compose logs` or console output
-- Ensure database exists at `~/.local/share/memory-sqlite/claude_code.db`
+- Ensure database exists at `~/.local/share/memories/claude_code.db`
 
 ## License
 

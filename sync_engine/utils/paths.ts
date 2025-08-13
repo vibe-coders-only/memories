@@ -9,7 +9,7 @@ import { join } from 'path';
 export function getBasePath(): string {
   return process.env.NODE_ENV === 'production' 
     ? '/data'
-    : join(homedir(), '.local', 'share', 'memory-sqlite');
+    : join(homedir(), '.local', 'share', 'memories');
 }
 
 /**
@@ -34,12 +34,12 @@ export function getDatabasePath(): string {
  * Get the transaction log file path
  */
 export function getTransactionLogPath(): string {
-  return join(getBasePath(), 'mem_db_changes.jsonl');
+  return join(getBasePath(), 'memories_db_changes.jsonl');
 }
 
 /**
  * Get the database watcher log path
  */
 export function getDatabaseWatcherLogPath(): string {
-  return join(getBasePath(), 'mem_db_changes.jsonl');
+  return join(getBasePath(), 'memories_db_changes.jsonl');
 }

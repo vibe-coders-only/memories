@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-mem-sqlite is an MCP server that enables Claude Code to query conversation history. It synchronizes JSONL conversation logs from `~/.claude/projects/` into a structured SQLite database for real-time querying.
+memories is an MCP server that enables Claude Code to query conversation history. It synchronizes JSONL conversation logs from `~/.claude/projects/` into a structured SQLite database for real-time querying.
 
 ## Critical Guidelines
 
@@ -21,7 +21,7 @@ docker compose up -d
 docker compose logs -f
 
 # One-time sync
-docker compose --profile sync-once up memory-sqlite-sync-once
+docker compose --profile sync-once up memories-sync-once
 
 # Stop daemon
 docker compose down
@@ -70,7 +70,7 @@ Claude Code → JSONL Files → Watcher → Parser → SQLite → MCP Server →
 
 ### Database Schema
 
-The normalized SQLite schema (`~/.local/share/memory-sqlite/claude_code.db`):
+The normalized SQLite schema (`~/.local/share/memories/claude_code.db`):
 - `sessions` - Conversation sessions with timestamps
 - `messages` - User/assistant messages linked to sessions
 - `tool_uses` - Tool invocations with parameters
@@ -83,8 +83,8 @@ Foreign key relationships maintain data integrity across tables.
 ### File Locations
 
 - **Source Data**: `~/.claude/projects/**/*.jsonl` (read-only mount)
-- **Database**: `~/.local/share/memory-sqlite/claude_code.db`
-- **Transaction Log**: `~/.local/share/memory-sqlite/mem_db_changes.jsonl`
+- **Database**: `~/.local/share/memories/claude_code.db`
+- **Transaction Log**: `~/.local/share/memories/memories_db_changes.jsonl`
 - **Docker Volume**: `/data` inside container
 
 ## Development Notes

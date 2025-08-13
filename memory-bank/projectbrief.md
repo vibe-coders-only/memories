@@ -1,8 +1,8 @@
-# mem-sqlite Project Brief
+# memories Project Brief
 
 ## Project Overview
 
-**mem-sqlite** is a standalone synchronization engine that transforms Claude Code JSONL conversation logs into structured SQLite databases. This project evolved from the working `cafe-db-sync` system, rebranded and refactored to operate under the "memory-sqlite" namespace.
+**memories** is a standalone synchronization engine that transforms Claude Code JSONL conversation logs into structured SQLite databases. This project evolved from the working `cafe-db-sync` system, rebranded and refactored to operate under the "memories" namespace.
 
 ## Core Purpose
 
@@ -32,8 +32,8 @@ Transform Claude Code conversation logs (JSONL format) into queryable SQLite dat
 ### Directory Structure
 ```
 - Source files: TypeScript modules in sync_engine/
-- Database location: ~/.local/share/memory-sqlite/claude_code.db
-- Transaction logs: ~/.local/share/memory-sqlite/mem_db_changes.jsonl
+- Database location: ~/.local/share/memories/claude_code.db
+- Transaction logs: ~/.local/share/memories/memories_db_changes.jsonl
 - JSONL source: ~/.claude/projects/**/*.jsonl
 ```
 
@@ -47,7 +47,7 @@ Transform Claude Code conversation logs (JSONL format) into queryable SQLite dat
 - Production deployment using NODE_ENV=production
 - Volume mounts: 
   - `~/.claude/projects` → `/home/user/.claude/projects`
-  - `~/.local/share/memory-sqlite` → `/home/user/.local/share/memory-sqlite`
+  - `~/.local/share/memories` → `/home/user/.local/share/memories`
 
 ## Architecture
 

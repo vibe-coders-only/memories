@@ -18,7 +18,7 @@ However, this data is stored as append-only text files, making it difficult to:
 
 ## Solution Architecture
 
-mem-sqlite bridges this gap by:
+memories bridges this gap by:
 
 1. **Watching** Claude Code project directories for JSONL file changes
 2. **Parsing** JSONL messages into structured TypeScript objects

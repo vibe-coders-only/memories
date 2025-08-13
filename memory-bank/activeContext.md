@@ -15,7 +15,7 @@
 2. **MCP Server Implementation Complete**: 
    - Built full MCP server following memoryquery pattern with clean architecture
    - Structured modules: database/, tools/, utils/, transport.ts
-   - Comprehensive tool schema with mem-sqlite documentation and examples
+   - Comprehensive tool schema with memories documentation and examples
    - Safety validation with SELECT-only queries and SQL injection prevention
    - Successfully integrated with Claude Code user configuration
 
@@ -77,7 +77,7 @@ id: contentItem.id,  // Preserve original JSONL tool_use.id
 - **Container User**: Using existing `node` user (UID/GID 1000)
 - **Volume Mapping**: 
   - `~/.claude/projects` → `/claude-projects:ro` (read-only source)
-  - `~/.local/share/memory-sqlite` → `/data` (writable destination)
+  - `~/.local/share/memories` → `/data` (writable destination)
 - **Path Resolution**: Centralized in `utils/paths.ts`
 
 ### Tool Extraction Strategy
@@ -156,4 +156,4 @@ id: contentItem.id,  // Preserve original JSONL tool_use.id
 - **Reliability**: Zero tool failures across extensive automated workflows
 - **Architecture**: Clean separation of concerns with modular, maintainable design
 
-**Conclusion**: The mem-sqlite system has evolved into a production-grade conversation analytics platform. All major technical challenges resolved, MCP integration complete, and comprehensive security validation passed. Ready for broader deployment and advanced feature development.
+**Conclusion**: The memories system has evolved into a production-grade conversation analytics platform. All major technical challenges resolved, MCP integration complete, and comprehensive security validation passed. Ready for broader deployment and advanced feature development.

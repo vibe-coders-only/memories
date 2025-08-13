@@ -1,4 +1,4 @@
-# Installing mem-sqlite MCP Server with Claude Code
+# Installing memories MCP Server with Claude Code
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@
 
 ```bash
 # Clone the repository (or use your existing installation)
-cd ~/mem-sqlite
+cd ~/memories
 
 # Install dependencies
 npm install
@@ -28,14 +28,14 @@ You need to add the MCP server configuration to Claude Code's settings. The conf
 **macOS/Linux**: `~/.config/claude/claude_desktop_config.json`
 **Windows**: `%APPDATA%\claude\claude_desktop_config.json`
 
-Edit this file and add the mem-sqlite server to the `mcpServers` section:
+Edit this file and add the memories server to the `mcpServers` section:
 
 ```json
 {
   "mcpServers": {
-    "memory-sqlite": {
+    "memories": {
       "command": "node",
-      "args": ["/home/joshf/mem-sqlite/mcp-server/index.js"],
+      "args": ["/home/joshf/memories/mcp-server/index.js"],
       "env": {
         "NODE_ENV": "production"
       }
@@ -44,7 +44,7 @@ Edit this file and add the mem-sqlite server to the `mcpServers` section:
 }
 ```
 
-**Important**: Adjust the path `/home/joshf/mem-sqlite/` to match your actual installation directory.
+**Important**: Adjust the path `/home/joshf/memories/` to match your actual installation directory.
 
 ### 3. Alternative: Using npx (if published to npm)
 
@@ -53,9 +53,9 @@ If you publish the package to npm, you can use:
 ```json
 {
   "mcpServers": {
-    "memory-sqlite": {
+    "memories": {
       "command": "npx",
-      "args": ["mem-sqlite", "mcp-server"]
+      "args": ["memories", "mcp-server"]
     }
   }
 }
@@ -144,7 +144,7 @@ If you get "database not found" errors:
 
 ```bash
 # Ensure database exists
-ls -la ~/.local/share/memory-sqlite/claude_code.db
+ls -la ~/.local/share/memories/claude_code.db
 
 # If not, run initial sync
 npm run cli sync
@@ -153,8 +153,8 @@ npm run cli sync
 ### Permission Errors
 
 Ensure the user running Claude Code has read access to:
-- The mem-sqlite installation directory
-- `~/.local/share/memory-sqlite/claude_code.db`
+- The memories installation directory
+- `~/.local/share/memories/claude_code.db`
 - `~/.claude/projects/` (for the sync daemon)
 
 ## Available SQL Tables
@@ -210,11 +210,11 @@ Or use systemd/launchd for automatic startup (see platform-specific documentatio
 - The MCP server provides **read-only** access to the database
 - Only SELECT queries are allowed
 - The database contains your conversation history - keep it secure
-- Consider encrypting `~/.local/share/memory-sqlite/` if storing sensitive data
+- Consider encrypting `~/.local/share/memories/` if storing sensitive data
 
 ## Support
 
 For issues or questions:
-- Check the logs in `~/.local/share/memory-sqlite/logs/`
+- Check the logs in `~/.local/share/memories/logs/`
 - Review test output: `npm test`
 - See the test checklist: `MCP_SERVER_TEST_CHECKLIST.md`

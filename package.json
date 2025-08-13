@@ -1,0 +1,39 @@
+{
+  "name": "mem-sqlite",
+  "version": "0.1.0",
+  "description": "Minimal sync engine for Claude Code logs JSONL to SQLite",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node index.ts",
+    "dev": "npx tsx index.ts",
+    "test": "vitest",
+    "cli": "npx tsx cli.ts",
+    "mcp-server": "npx tsx mcp-server/index.ts"
+  },
+  "bin": {
+    "mem-sqlite": "./cli.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@opentelemetry/api": "^1.7.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.40.0",
+    "@opentelemetry/exporter-jaeger": "^1.18.0",
+    "@opentelemetry/exporter-prometheus": "^0.45.0",
+    "@opentelemetry/resources": "^1.18.0",
+    "@opentelemetry/sdk-metrics": "^1.18.0",
+    "@opentelemetry/sdk-node": "^0.45.0",
+    "@opentelemetry/sdk-trace-base": "^1.18.0",
+    "@opentelemetry/semantic-conventions": "^1.18.0",
+    "@types/uuid": "^10.0.0",
+    "better-sqlite3": "^12.2.0",
+    "chokidar": "^4.0.3",
+    "tsx": "^4.0.0",
+    "uuid": "^11.1.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.1.0",
+    "vitest": "^3.2.4"
+  }
+}
